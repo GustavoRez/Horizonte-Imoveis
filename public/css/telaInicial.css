@@ -1,0 +1,350 @@
+html,
+body {
+    background-color: #FFF1EB;
+    color: #3A3A3A;
+
+    margin: 0;
+
+    font-family: 'Times New Roman', sans-serif;
+}
+
+.nav-container {
+    height: 100vh;
+    overflow: hidden;
+
+    background-image: url('/imagens/fundo.jpg');
+    background-size: cover;
+    background-position: center;
+
+    color: #FFF1EB;
+
+}
+
+.navb {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    font-size: 16px;
+
+    font-family: Arial, sans-serif;
+}
+
+.logo {
+    margin-top: 10px;
+    width: 100px;
+
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    user-select: none;
+}
+
+.links {
+    display: inline-block;
+    text-decoration: none;
+    color: #FFF1EB;
+}
+
+.links::after {
+    content: '';
+
+    display: block;
+    width: 0px;
+    height: 1px;
+
+    background: #FFF1EB;
+
+    transition: 300ms;
+}
+
+.links:hover::after {
+    width: 100%;
+}
+
+.user-settings {
+    display: inline-flex;
+}
+
+.user-settings i {
+    color: #FFF1EB;
+    font-size: 28px;
+    transition: transform 300ms ease, color 300ms ease;
+}
+
+.user-settings:hover i {
+    color: #D3D3D3;
+    transform: scale(1.2);
+}
+
+
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 80vh;
+}
+
+.title {
+    font-size: 50px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.main-content button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #6B8E23;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.4s ease, transform 1s ease;
+}
+
+.main-content button:hover {
+    background-color: #556B2F;
+    transform: scale(1.1);
+}
+
+.vitrine {
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.vitrine-title {
+    font-size: 35px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 2rem;
+    user-select: none;
+}
+
+.boxes-vitrine {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 2fr));
+    gap: 2rem;
+    width: 100%;
+    justify-items: center;
+    justify-self: center;
+}
+
+.boxes-vitrine.carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    scroll-snap-type: x mandatory;
+    padding: 10px;
+    scrollbar-width: none;
+}
+
+.boxes-vitrine.carousel .box-vitrine {
+    min-width: 27rem;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.boxes-vitrine.carousel {
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.boxes-vitrine.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-btn {
+    background: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+    position: absolute;
+    z-index: 10;
+    transition: transform 200ms ease, opacity 200ms ease;
+}
+
+.carousel-btn:hover {
+    transform: scale(1.1);
+}
+
+.carousel-btn.left {
+    left: -24px;
+}
+
+.carousel-btn.right {
+    right: -24px;
+}
+
+
+.box-vitrine {
+    border-radius: 12px;
+    width: 25rem;
+    height: 33rem;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 600ms ease, transform 600ms ease;
+}
+
+.box-vitrine:hover {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+}
+
+.box-vitrine img {
+    width: 330px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+
+    user-select: none;
+}
+
+.valor-imovel-vitrine {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.spec-imovel-vitrine {
+    font-size: 15px;
+    display: grid;
+    text-align: left;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+.loc {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.box-vitrine button {
+    background-color: #1D3557;
+    color: #FFFFFF;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    padding: 5px 20px;
+    transition: color 300ms ease, transform 300ms ease;
+    margin-bottom: 1rem;
+}
+
+.box-vitrine button:hover {
+    background-color: #457B9D;
+    transform: scale(1.05);
+}
+
+.ver-mais-card {
+    min-width: 27rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    border-radius: 16px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(30px);
+    transition: all 0.6ms ease;
+}
+
+.ver-mais-card.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.ver-mais-content {
+    text-align: center;
+}
+
+.ver-mais-content button {
+    margin-top: 1rem;
+}
+
+
+.veja-mais {
+    position: relative;
+
+    color: #1D3557;
+    display: inline-block;
+
+    text-decoration: none;
+    text-align: center;
+
+    margin: 2rem;
+    padding: 1rem;
+
+    border: transparent 1px solid;
+    border-radius: 100px;
+    transition: color 300ms ease, border 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+}
+
+.veja-mais:hover {
+    color: #457B9D;
+    border-color: #1D3557;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+}
+
+footer {
+    background-color: #3A3A3A;
+    color: #FFF1EB;
+    text-align: center;
+    padding: 1rem;
+    padding-top: 2.5rem;
+    user-select: none;
+
+    font-family: Arial, sans-serif;
+}
+
+footer p {
+    font-size: 16px;
+}
+
+footer a {
+    color: #FFF1EB;
+    text-decoration: none;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #D3D3D3;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+#email {
+    user-select: text;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" href="/imagens/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/tela_imovel.css">
+    <title>
+        <%= imovel.titulo %>
+    </title>
+</head>
+
+<body>
+
+    <div class="fotos-wrapper">
+        <a href="/imoveis" id="imoveis"><i class="bi bi-arrow-left-circle seta"></i></a>
+        <div class="cascade-container">
+            <% imovel.imagem.forEach(imagem=> { %>
+                <img src="<%= imagem %>" alt="Imagem do imóvel">
+                <% }); %>
+        </div>
+    </div>
+
+    <div class="cont">
+        <div class="info-imovel">
+            <div class="main-content">
+                <div class="header-imovel">
+                    <h1>
+                        <%= imovel.titulo_completo %>
+                    </h1>
+                    <p class="descricao">
+                        <%= imovel.descricao_completa %>
+                    </p>
+                </div>
+                <div class="spec-imovel-vitrine">
+                    <div>
+                        <div class="spec-item"><i class="fas fa-home"></i> <span><strong>Tipo:</strong>
+                                <%= imovel.tipo %>
+                            </span></div>
+                        <div class="spec-item"><i class="fas fa-map-marker-alt"></i> <span><strong>Local:</strong>
+                                <%= imovel.localizacao %>
+                            </span></div>
+
+                        <div class="spec-item"><i class="fas fa-bed"></i> <span><strong>Quartos:</strong>
+                                <%= imovel.quarto %>
+                            </span></div>
+                    </div>
+                    <div>
+                        <div class="spec-item"><i class="fas fa-bath"></i> <span><strong>Banheiros:</strong>
+                                <%= imovel.banheiro %>
+                            </span></div>
+                        <div class="spec-item"><i class="fas fa-ruler-combined"></i> <span><strong>Área:</strong>
+                                <%= imovel.metragem %> m²
+                            </span></div>
+                        <div class="spec-item"><i class="fas fa-tag"></i> <span><strong>Status:</strong>
+                                <%= imovel.transacao %>
+                            </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="preco-content">
+            <div class="valores">
+                <p>
+                    <%= imovel.transacao %>
+                </p>
+                <p><span>Valor</span> <strong>
+                        <%= imovel.valor %>
+                    </strong></p>
+                <div class="<%= imovel.transacao !== 'Venda' ? 'hidden' : '' %>">
+                    <p><span>Cond.</span> <strong>
+                            <%= imovel.cond %>
+                        </strong></p>
+                    <p><span>IPTU</span> <strong>
+                            <%= imovel.iptu %>
+                        </strong></p>
+                </div>
+            </div>
+            <div class="contato-buttons">
+                <button class="btn-email">Email</button>
+                <button class="btn-whatsapp">Whatsapp</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

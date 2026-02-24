@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-top: 2rem;
+    background-color: #FFF1EB;
+}
+
+.nav-imoveis {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    margin-right: 4rem;
+    padding: 0 2rem;
+}
+
+.home {
+    font-size: 2rem;
+    color: #1D3557;
+    text-decoration: none;
+}
+
+select,
+button {
+    padding: 0.5rem;
+    margin-right: 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+select {
+    color: #1D3557;
+    border: 1px solid #000000;
+    width: 175px;
+    border-radius: 20px;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+button {
+    background-color: #6B8E23;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #556B2F;
+}
+
+li {
+    list-style-type: none;
+}
+
+.imovel-item {
+    background-color: #fff;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0 3rem;
+    margin-bottom: 1rem;
+
+    height: 11rem;
+
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+#left {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    width: 600px;
+}
+
+#descricao {
+    border-left: 2px solid #1D3557;
+    border-right: 2px solid #1D3557;
+
+    position: relative;
+    display: inline-block;
+
+    justify-self: center;
+
+    width: 767px;
+    padding: 0 1rem;
+
+    text-align: center;
+}
+
+#right {
+    width: 410px
+}
+
+.imovel-item img {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.spec-imovel-item {
+    font-size: 14px;
+    display: grid;
+    text-align: left;
+    gap: 10px 0px;
+    grid-template-columns: repeat(2, 1fr);
+
+    min-width: 200px;
+
+    margin-right: 1rem;
+}
+
+.loc {
+    display: flex;
+    flex-wrap: nowrap;
+
+    cursor: auto;
+}

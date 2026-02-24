@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" href="/imagens/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/telaInicial.css">
+    <title>Horizonte Imóveis</title>
+</head>
+
+<body>
+    <div class="nav-container">
+        <div class="navb">
+            <img src="/imagens/logo.png" alt="Logo Horizonte Imóveis" class="logo" onclick="window.location.href='/'">
+            <div class="nav-links">
+                <p><a href="/imoveis?transacao=aluguel" class="links">Aluguel</a></p>
+                <p><a href="/imoveis?transacao=venda" class="links">Venda</a></p>
+                <p><a href="/contato" class="links">Contato</a></p>
+                <p class="user-settings"><i class="bi bi-person-circle"></i></p>
+            </div>
+        </div>
+        <div class="main-content">
+            <p class="title">Há mais de 20 anos trabalhando com Imóveis</p>
+            <button onclick="window.location.href='/imoveis'">O imóvel certo para comprar ou alugar, do seu
+                jeito.</button>
+        </div>
+    </div>
+
+    <div class="vitrine">
+        <p class="vitrine-title">Encontre seu próximo imóvel!</p>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn left" <%=imoveis.length <=3 ? 'hidden' : '' %>>&#10094;</button>
+            <div class="boxes-vitrine <%= imoveis.length > 3 ? 'carousel' : '' %>">
+                <% imoveis.forEach(imovel=> { %>
+                    <div class="box-vitrine">
+                        <div>
+                            <img src="<%= imovel.imagem %>" alt="">
+                            <p class="valor-imovel-vitrine">
+                                <%= imovel.valor %>
+                            </p>
+                            <hr>
+                            <div class="spec-imovel-vitrine">
+                                <p><strong><i class="bi bi-house"></i> Tipo:</strong>
+                                    <%= imovel.tipo %>
+                                </p>
+                                <p class="loc" title="<%= imovel.localizacao %>"><strong><i class="bi bi-geo-alt"></i>
+                                        Local:</strong>
+                                    <%= imovel.localizacao.length> 18 ? imovel.localizacao.slice(0, 18) + "...":
+                                        imovel.localizacao %>
+                                </p>
+                                <p><strong><i class="bi bi-door-closed"></i> Quartos:</strong>
+                                    <%= imovel.quartos %>
+                                </p>
+                                <p><strong><i class="bi bi-currency-dollar"></i> Disponível para:</strong>
+                                    <%= imovel.transacao %>
+                                </p>
+                                <p><strong><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                                            aria-hidden="true" role="presentation" focusable="false"
+                                            style="height: 24px; width: 16px; fill: currentcolor;">
+                                            <path
+                                                d="M7.5 2a4.5 4.5 0 0 1 4.47 4H14v2H8V6h1.95A2.5 2.5 0 0 0 5 6.34V16h26v2h-2v5a5 5 0 0 1-3 4.58V30h-2v-2H8v2H6v-2.42a5 5 0 0 1-3-4.34V18H1v-2h2V6.5A4.5 4.5 0 0 1 7.5 2zM27 18H5v5a3 3 0 0 0 2.65 2.98l.17.01L8 26h16a3 3 0 0 0 3-2.82V23z">
+                                            </path>
+                                        </svg> Banheiros:</strong>
+                                    <%= imovel.banheiros %>
+                                </p>
+                                <p><strong><i class="bi bi-house-gear"></i> Metragem:</strong>
+                                    <%= imovel.metragem %> m²
+                                </p>
+                            </div>
+                            <button onclick="window.location.href='/imovel/<%= imovel.public_id %>'">Veja mais</button>
+                        </div>
+                    </div>
+                    <% }) %>
+                        <div class="box-vitrine ver-mais-card">
+                            <div class="ver-mais-content">
+                                <p>Quer ver mais imóveis?</p>
+                                <button onclick="window.location.href='/imoveis'">
+                                    Ver todos
+                                </button>
+                            </div>
+                        </div>
+            </div>
+            <button class="carousel-btn right" <%=imoveis.length <=3 ? 'hidden' : '' %>>&#10095;</button>
+        </div>
+        <a href="/imoveis">
+            <p class="title veja-mais">Veja outros imóveis!</p>
+        </a>
+    </div>
+
+    <div>
+        <footer>
+            <div class="footer-content">
+                <div>
+                    <div>
+                        <h3>Horizonte Imóveis</h3>
+                        <p>Há mais de 20 anos ajudando você a encontrar o imóvel dos seus sonhos.</p>
+                    </div>
+                    <div>
+                        <p>Criado e administrado por Silvana de Rezende Asurara (CRECI: 123456).</p>
+                    </div>
+
+                </div>
+                <div>
+                    <div>
+                        <h4>Contato</h4>
+                        <div>
+                            <p><a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i>
+                                    @horizonteimoveis</a> |
+                                <a href="https://wa.me/551112345678" target="_blank">
+                                    <i class="bi bi-whatsapp"></i> +55 11 1234-5678
+                                </a>
+                            </p>
+                            <p id="email"><a href="mailto:contato@horizonteimoveis.com.br"><i
+                                        class="bi bi-envelope"></i>
+                                    contato@horizonteimoveis.com.br</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>&copy; 2026 Horizonte Imóveis. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.boxes-vitrine.carousel');
+            const leftBtn = document.querySelector('.carousel-btn.left');
+            const rightBtn = document.querySelector('.carousel-btn.right');
+            const verMaisCard = document.querySelector('.ver-mais-card');
+
+            if (!container) return;
+
+            const scrollAmount = 350;
+
+            function updateUI() {
+                const scrollLeft = container.scrollLeft;
+                const scrollWidth = container.scrollWidth;
+                const clientWidth = container.clientWidth;
+
+                if (leftBtn) {
+                    leftBtn.style.display = scrollLeft <= 10 ? 'none' : 'block';
+                }
+
+                if (rightBtn) {
+                    const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 30;
+                    rightBtn.style.display = isAtEnd ? 'none' : 'block';
+                }
+
+                if (verMaisCard) {
+                    const trigger = scrollWidth - clientWidth - 150;
+                    if (scrollLeft >= trigger) {
+                        verMaisCard.classList.add('show');
+                    } else {
+                        verMaisCard.classList.remove('show');
+                    }
+                }
+            }
+
+            leftBtn?.addEventListener('click', () => {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+
+            rightBtn?.addEventListener('click', () => {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+
+            container.addEventListener('scroll', updateUI);
+
+            updateUI();
+            setTimeout(updateUI, 100);
+        });
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

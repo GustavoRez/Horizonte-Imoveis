@@ -1,0 +1,104 @@
+Cores:
+
+Rosa:   #FFF1EB
+Texto:  #3A3A3A
+Azul:   #1D3557
+Verde:  #6B8E23
+Cinza:  #6C757D
+
+IA assistente num balao flutuante
+
+Espaço do user na tela inicial
+REDES SOCIAIS NA TELA INICIAL
+
+Filtro:
+    <div class="filter">
+        <form action="/filtro" method="GET" class="filter-form">
+            
+            <div class="toggle-transacao">
+                <input type="radio" name="transacao" id="comprar" value="venda" checked>
+                <label for="comprar">Comprar</label>
+
+                <input type="radio" name="transacao" id="alugar" value="aluguel">
+                <label for="alugar">Alugar</label>
+            </div>
+
+            <select name="tipo" class="form-select">
+                <option value="" disabled selected>Tipo de Imóvel</option>
+                <option value="casa">Casa</option>
+                <option value="apartamento">Apartamento</option>
+            </select>
+            <select name="quartos" class="form-select">
+                <option value="" disabled selected>Quartos</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4+</option>
+            </select>
+            <select name="banheiros" class="form-select">
+                <option value="" disabled selected>Banheiros</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4+</option>
+            </select>
+            <select name="vagas" class="form-select">
+                <option value="" disabled selected>Vagas</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4+</option>
+            </select>
+            <input type="text" name="bairro" id="bairro" placeholder="Bairro">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+    </div>
+
+
+
+
+    .filter {
+    height: 40vh;
+    width: 50%;
+    justify-self: center;
+}
+
+.filter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.toggle-transacao {
+    display: flex;
+    position: relative;
+    gap: 12px;
+}
+
+.toggle-transacao input {
+    display: none;
+}
+
+.toggle-transacao label {
+    padding: 12px 24px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #333;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.toggle-transacao input:checked+label {
+    background: #1D3557;
+    color: #fff;
+    border-color: #1D3557;
+}
+
+.toggle-transacao label:hover {
+    border-color: #1D3557;
+}
