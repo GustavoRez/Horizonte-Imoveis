@@ -1,12 +1,11 @@
 const express = require("express");
 const session = require('express-session');
-const fs = require('fs');
 const app = express();
 const path = require('path');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const { supabase } = require("./supabaseClient");
 const ejs = require('ejs');
-const { format } = require('date-fns');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -17,8 +16,10 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/", (req, res) => {
+    const filePath = path.join(__dirname, 'data', 'imoveis.json');
+
     const imoveis = JSON.parse(
-        fs.readFileSync('./data/imoveis.json', 'utf-8')
+        fs.readFileSync(filePath, 'utf-8')
     );
 
     res.render("tela_inicial", { imoveis });
